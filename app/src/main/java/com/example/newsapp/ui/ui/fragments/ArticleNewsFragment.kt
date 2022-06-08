@@ -22,10 +22,11 @@ class ArticleNewsFragment: Fragment(R.layout.fragment_article) {
 
         //show in website view
 
+
         val article = args.article
         webView.apply{
             webViewClient = WebViewClient()
-            loadUrl(article.url)
+            article.url?.let { loadUrl(it) }
         }
 
         fab.setOnClickListener {
